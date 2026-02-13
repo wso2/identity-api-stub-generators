@@ -1,0 +1,35 @@
+{{{licenseHeaderJava}}}
+
+package {{package}}.impl;
+
+import {{package}}.*;
+import {{modelPackage}}.*;
+
+
+{{#imports}}import {{import}};
+{{/imports}}
+
+import java.util.List;
+
+import java.io.InputStream;
+import org.apache.cxf.jaxrs.ext.multipart.Attachment;
+
+import javax.ws.rs.core.Response;
+
+{{#operations}}
+/**
+* Implementation of {{classname}} Service.
+*/
+public class {{classname}}ServiceImpl extends {{classname}}Service {
+
+{{#operation}}
+    @Override
+    public Response {{nickname}}({{#allParams}}{{>serviceQueryParams}}{{>servicePathParams}}{{>serviceHeaderParams}}{{>serviceBodyParams}}{{>serviceFormParams}}{{#hasMore}}, {{/hasMore}}{{/allParams}}) {
+
+        // do some magic!
+        return Response.ok().entity("magic!").build();
+    }
+
+{{/operation}}
+}
+{{/operations}}
