@@ -32,17 +32,18 @@
   <packaging>maven-plugin</packaging>
   <version>1.0.0</version>
   <name>swagger2cxf-maven-plugin Maven Mojo</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/wso2/identity-api-stub-generators</url>
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
       <version>3.9.0</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <!-- dependencies to annotations -->

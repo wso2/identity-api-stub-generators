@@ -32,6 +32,7 @@
     <packaging>jar</packaging>
     <name>cxf-wso2-openapi-generator</name>
     <version>1.0.0</version>
+    <url>https://github.com/wso2/identity-api-stub-generators</url>
     <build>
         <plugins>
             <plugin>
@@ -57,7 +58,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
                 <configuration>
                     <systemProperties>
                         <property>
@@ -67,7 +67,9 @@
                     </systemProperties>
                     <argLine>-Xms512m -Xmx1500m</argLine>
                     <parallel>methods</parallel>
-                    <forkMode>pertest</forkMode>
+                    <threadCount>2</threadCount>
+                    <forkCount>1</forkCount>
+                    <reuseForks>false</reuseForks>
                 </configuration>
             </plugin>
 
@@ -150,6 +152,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <openapi-generator-version>4.1.2</openapi-generator-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
-        <junit-version>4.8.1</junit-version>
+        <junit-version>4.13.2</junit-version>
     </properties>
 </project>

@@ -14,10 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Adopt JDK 11
+      - name: Set up Adopt JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: 21
           distribution: "adopt"
 
       - name: Build with Maven
@@ -59,11 +59,11 @@ jobs:
           # Get the artifacts for the workflow run
           ARTIFACTS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$GITHUB_API_URL/repos/$OWNER/$REPO/actions/runs/$RUN_ID/artifacts")
           ARTIFACT_URL=$(echo $ARTIFACTS | jq -r '.artifacts[] | select(.name == "jacoco-xml") | .archive_download_url')
-          if [ "$ARTIFACT_URL" == "null" ]; then
+          if [ -z "$ARTIFACT_URL" ] || [ "$ARTIFACT_URL" == "null" ]; then
             echo "Artifact not found"
             exit 1
           fi
-          echo "::set-output name=artifact-url::$ARTIFACT_URL"
+          echo "artifact-url=$ARTIFACT_URL" >> "$GITHUB_OUTPUT"
       - name: Download latest Jacoco report
         run: |
           curl -L -o artifact-oidc.zip \
@@ -110,11 +110,11 @@ jobs:
           # Get the artifacts for the workflow run
           ARTIFACTS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$GITHUB_API_URL/repos/$OWNER/$REPO/actions/runs/$RUN_ID/artifacts")
           ARTIFACT_URL=$(echo $ARTIFACTS | jq -r '.artifacts[] | select(.name == "jacoco-xml") | .archive_download_url')
-          if [ "$ARTIFACT_URL" == "null" ]; then
+          if [ -z "$ARTIFACT_URL" ] || [ "$ARTIFACT_URL" == "null" ]; then
             echo "Artifact not found"
             exit 1
           fi
-          echo "::set-output name=artifact-url::$ARTIFACT_URL"
+          echo "artifact-url=$ARTIFACT_URL" >> "$GITHUB_OUTPUT"
       - name: Download the latest Jacoco report
         run: |
           curl -L -o artifact-fapi.zip \
