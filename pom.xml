@@ -21,7 +21,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wso2.identity</groupId>
+    <parent>
+        <groupId>org.wso2</groupId>
+        <artifactId>wso2</artifactId>
+        <version>1</version>
+    </parent>
+
+    <groupId>org.wso2.carbon.identity.api.stub.generators</groupId>
     <artifactId>identity-api-stub-generators</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>

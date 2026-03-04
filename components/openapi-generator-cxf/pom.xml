@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
     
     <parent>
-        <groupId>org.wso2.identity</groupId>
+        <groupId>org.wso2.carbon.identity.api.stub.generators</groupId>
         <artifactId>identity-api-stub-generators</artifactId>
         <version>1.0.0</version>
         <relativePath>../../pom.xml</relativePath>
