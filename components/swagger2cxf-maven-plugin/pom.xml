@@ -23,14 +23,14 @@
   <parent>
     <groupId>org.wso2.carbon.identity.api.stub.generators</groupId>
     <artifactId>identity-api-stub-generators</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   
   <groupId>org.wso2.maven.plugins</groupId>
   <artifactId>swagger2cxf-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>1.0.0</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>swagger2cxf-maven-plugin Maven Mojo</name>
   <url>https://github.com/wso2/identity-api-stub-generators</url>
   <dependencies>
